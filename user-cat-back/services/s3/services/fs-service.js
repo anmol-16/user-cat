@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 let output = [];
+
+// TODO: remove this file if not required;
 //no global variables
 function getAllFilePaths(dirPath){
     try {

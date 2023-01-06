@@ -8,6 +8,8 @@ const region = config.s3Creds.bucketRegion;
 const accessKey = config.s3Creds.accessKey;
 const secretAccessKey = config.s3Creds.secretAccessKey;
 
+// TODO: remove this file if not required;
+
 async function deleteFolder(s3DirectoryPath){
     try {
         //delete a directory which is present in s3 bucket

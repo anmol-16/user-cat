@@ -18,12 +18,15 @@ const addNewSA = async (req, res) => {
             type,
             adminId:""
         })
+        // TODO: A service function should return and not res.send. Please update in every service function.
         return res.json({
             status:true,
             user:admin
         })
     } catch (error) {
         console.log(error);
+        // TODO: why is status true in case of error. Also since this is a service, it cannot directly send error to frontend. It should throw errors
+        // and the controller should send errors to FE. Please update in every service function
         return res.json({
             status:true,
             msg:"Could not add a new SA"
@@ -108,6 +111,8 @@ const updateUserDetailsInSA = async (req, res, next) =>{
     } catch (error) {
         console.log(error);
         console.log("User can't be updated");
+        // TODO: Error code cannot be 2XX, please read about different error codes and update accordingly in every API
+        // TODO status is sent like res.json().status(status); please read from documentation and update accordingly
         return res.json({
             status:false,
             code:"201",

@@ -13,6 +13,8 @@ const region = config.s3Creds.bucketRegion;
 const accessKey = config.s3Creds.accessKey;
 const secretAccessKey = config.s3Creds.secretAccessKey;
 
+// TODO: remove this file if it is not required. Check for other files, functions and params which are not required.
+
 function fileRead(filePath,uploadId,s3,key) {
   let chunkCount = 1;
   let uploadPartResults = [];

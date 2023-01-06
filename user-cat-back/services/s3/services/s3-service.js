@@ -13,6 +13,8 @@ const region = config.s3Creds.bucketRegion;
 const accessKey = config.s3Creds.accessKey;
 const secretAccessKey = config.s3Creds.secretAccessKey;
 
+// TODO: remove params and functions that are not required
+
 async function deleteFolder(s3DirectoryPath) {
   try {
     AWS.config.update({

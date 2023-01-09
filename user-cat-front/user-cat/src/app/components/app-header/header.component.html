@@ -1,0 +1,17 @@
+<div>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">User Catalog</a>
+      <!-- <form class="form-inline"> -->
+        <input [(ngModel)]="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <!-- </form> -->
+      <p>{{searchInput}}</p>
+        <button type="button" class="btn btn-primary search-btn" (click)="onSearch()">Search</button> 
+      <a href="" target="_blank" routerLink="/add-new-user">
+        <button type="button" class="btn btn-success add-new-btn">Add New User</button>
+      </a>
+      <a href="" target="_blank" routerLink="/bulk-import">
+        <button type="button" class="btn btn-success bulk-import-btn">Bulk Import</button>
+      </a>
+      
+    </nav>
+  </div>

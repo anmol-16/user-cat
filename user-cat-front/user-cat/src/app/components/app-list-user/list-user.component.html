@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
+      <div class="col mb-3 display-grid-user">
+        <div class="card col-2 " *ngFor="let user of allUserInfo">
+          <img src="../../../assets/img.jpg" alt="Cover" class="card-img-top">
+          <div class="card-body text-center">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style="width:100px;margin-top:-65px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
+            <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+            <p class="text-secondary mb-1">{{user.email}}</p>
+            <p class="text-muted font-size-sm">{{user.phoneNumber}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="">
+              <button type="button" class="btn btn-dark update-btn">Update User</button>
+            </a>
+            <a href="">
+              <button type="button" class="btn btn-danger delete-btn">Delete User</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

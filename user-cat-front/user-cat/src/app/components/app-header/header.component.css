@@ -1,0 +1,12 @@
+.search-btn{
+    position: relative;
+    float: left;
+    display: flex;
+    margin-right: 200px;
+}
+.add-new-btn{
+    margin-right: 100px;
+}
+.bulk-import-btn{
+    margin-right: 100px;
+}

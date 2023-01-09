@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './components/users/users.component';
-import { ListUserComponent } from './components/list-user/list-user.component';
-import { AddUserComponent } from './components/add-user/add-user.component';
-import { BulkImportComponent } from './components/bulk-import/bulk-import.component';
-import { HeaderComponent } from './components/header/header.component';
+import { UsersComponent } from './components/app-users/users.component';
+import { ListUserComponent } from './components/app-list-user/list-user.component';
+import { AddUserComponent } from './components/app-add-user/add-user.component';
+import { BulkImportComponent } from './components/app-bulk-import/bulk-import.component';
+import { HeaderComponent } from './components/app-header/header.component';
 import {ListUserResolver} from './services/all-user-resolver.service'
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgxPaginationModule 
+    NgxPaginationModule ,
+    FormsModule
   ],
   providers: [ListUserResolver],
   bootstrap: [AppComponent]

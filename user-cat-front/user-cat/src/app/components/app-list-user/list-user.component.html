@@ -1,26 +1,37 @@
 <div class="container">
   <div class="main-body">
+    <div class="user-functionalities">
+        <input  [(ngModel)]="searchInput" class="form-control mr-sm-2 input-design" type="search" placeholder="Search" aria-label="Search">
+      <br>
+        <button type="button" class="btn btn-primary search-btn " (click)="onSearch()">Search</button> 
+        <button type="button" class="btn btn-success add-new-btn">Add New User</button>
+        <button type="button" class="btn btn-success bulk-import-btn">Bulk Import</button>
+    </div>
+    <br>
+    <br>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
       <div class="col mb-3 display-grid-user">
-        <div class="card col-2 " *ngFor="let user of allUserInfo">
-          <img src="../../../assets/img.jpg" alt="Cover" class="card-img-top">
-          <div class="card-body text-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style="width:100px;margin-top:-65px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
-            <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
-            <p class="text-secondary mb-1">{{user.email}}</p>
-            <p class="text-muted font-size-sm">{{user.phoneNumber}}</p>
+        <div class="divTable">
+          <div class="headRow">
+            <div class="divCell">User Name</div>
+            <div class="divCell">User Phone</div>
+            <div class="divCell">User Email</div>
+            <div class="divCell">Update Option</div>
+            <div class="divCell">Delete Option</div>
           </div>
-          <div class="card-footer">
-            <a href="">
-              <button type="button" class="btn btn-dark update-btn">Update User</button>
-            </a>
-            <a href="">
-              <button type="button" class="btn btn-danger delete-btn">Delete User</button>
-            </a>
+          <div class="divRow" *ngFor="let user of allUserInfo">
+            <div class="divCell">{{user.firstName}} {{user.lastName}}</div>
+            <div class="divCell">{{user.phoneNumber}}</div>
+            <div class="divCell">{{user.email}}</div>
+            <div class="divCell"><button class="btn btn-success profile-button btn-pos " type="button">Update User</button></div>
+            <div class="divCell"><button class="btn btn-danger profile-button btn-pos " type="button">Delete User</button></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<div class="mt-5 text-center ">
+  <button class="btn btn-primary profile-button btn-pos " type="button" (click)="prevBtn()" [disabled]="pageNumber<=1">Prev</button>
+  <button class="btn btn-primary profile-button btn-pos" type="button"  (click)="nextBtn()">Next</button>
+</div>

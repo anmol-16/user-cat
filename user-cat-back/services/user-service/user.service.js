@@ -60,7 +60,8 @@ const addUserToAdmin = async (req, res) => {
 const fetchUsersInSA = async (req, res) => {
     try {
         const paramsId = req.params.id;
-        let userRes = await UserSchema.find({adminId:paramsId}).sort({firstName:1});
+        const pageNumbers = req.query.pageNumbers;
+        let userRes = await UserSchema.find({adminId:paramsId}).skip(3*(pageNumbers-1)).sort({firstName:1}).limit(3);
         return res.json({
             status:true,
             data:userRes
@@ -118,7 +119,8 @@ const updateUserDetailsInSA = async (req, res, next) =>{
 
 const searchUserInSA = async(req, res) => {
     try {
-        await UserSchema.find({'adminId':req.params.id,"firstName":{ $regex:req.query.firstName, $options:"i"}}).then((results)=>{
+        let pageNumbers = req.query.pageNumbers;
+        await UserSchema.find({'adminId':req.params.id,"firstName":{ $regex:req.query.firstName, $options:"i"}}).skip(3*(pageNumbers-1)).limit(3).then((results)=>{
             res.json({
                 status:true,
                 data:results

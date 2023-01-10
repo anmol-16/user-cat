@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserService} from './user.service'
+
 
 @Component({
   selector: 'app-users',
@@ -8,9 +8,7 @@ import {UserService} from './user.service'
 })
 export class UsersComponent {
 
-  constructor(private userService:UserService){}
+  constructor(){}
 
-  updateDetails(){
-    this.userService.updateDetails();
-  }
+
 }

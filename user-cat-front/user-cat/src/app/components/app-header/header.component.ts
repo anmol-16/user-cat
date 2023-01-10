@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user-service';
 
 @Component({
   selector: 'app-header',
@@ -11,17 +12,13 @@ export class HeaderComponent {
   baseUrl : String = 'http://localhost:1010'
   searchedQueryParams : String = ''
   searchInput:String = ''
+  searchUserArr : any = []
   constructor(
     private http:HttpClient,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private userService: UserService
     ){}
 
 
-  onSearch(){
-    console.log(this.searchInput,"helooooooooooooooooo");
-    // console.log();
-    
-    return this.http.get(`${this.baseUrl}/api/63b6bacabf38bc2eb8d72307/search?firstName=`+`${this.searchInput}`);
-
-  }
+  
 }

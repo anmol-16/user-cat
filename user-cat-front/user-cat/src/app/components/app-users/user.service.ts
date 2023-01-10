@@ -10,10 +10,5 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    updateDetails(){
-        return this.http.put(`${this.baseUrl}/api/update-user/:id`,{}).subscribe()
-    }
-    deleteUser(){
-        return this.http.delete(`${this.baseUrl}/api/delete-user/:id`,{}).subscribe();
-    }
+    
 }

@@ -92,3 +92,49 @@ body{
     width: 100%;
     justify-content: space-between;
 }
+.btn-pos{
+    margin-left: 20px;
+    /* margin-right: 20px; */
+}
+.search-btn{
+    position: relative;
+    float: left;
+    display: flex;
+    margin-right: 200px;
+}
+.add-new-btn{
+    margin-right: 100px;
+}
+.bulk-import-btn{
+    margin-right: 100px;
+}
+.input-design{
+    width: 20%;
+}
+.divTable
+{
+    display:  table;
+    width:auto;
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:5px;/*cellspacing:poor IE support for  this*/
+   /* border-collapse:separate;*/
+}
+
+.divRow
+{
+   display:table-row;
+   width:auto;
+}
+
+.divCell
+{
+    float:left;/*fix for  buggy browsers*/
+    display:table-column;
+    width:200px;
+    height: 40px;
+    background-color:#ccc;
+}
+.Sn{
+    align-items: center;
+}

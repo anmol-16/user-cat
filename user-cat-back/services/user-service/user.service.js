@@ -120,7 +120,7 @@ const updateUserDetailsInSA = async (req, res, next) =>{
 const searchUserInSA = async(req, res) => {
     try {
         let pageNumbers = req.query.pageNumbers;
-        await UserSchema.find({'adminId':req.params.id,"firstName":{ $regex:req.query.firstName, $options:"i"}}).skip(3*(pageNumbers-1)).limit(3).then((results)=>{
+        await UserSchema.find({'adminId':req.params.id,"firstName":{ $regex:req.query.firstName, $options:"i"}}).skip(4*(pageNumbers-1)).limit(4).then((results)=>{
             res.json({
                 status:true,
                 data:results

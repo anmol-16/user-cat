@@ -1,6 +1,14 @@
 .user-catalog{
     padding-left: 20px;
+    color: white;
 }
 .user-catalog-logout{
-    margin-right: 20px;
+    margin-right: 5%;
+}
+.bg-col{
+    background-color: #8723ff;
+}
+.btn-style{
+    color: white;
+    
 }

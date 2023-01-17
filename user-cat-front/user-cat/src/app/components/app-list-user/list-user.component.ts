@@ -16,6 +16,11 @@ export class ListUserComponent {
   pageNumber: any = 1;
   isDisabled = true;
   searchInput = '';
+  numberOfDocs: any = 0;
+  totalPages = 0;
+  tempArr:any = []
+  tableHeadingList:any=  ['First Name','Last Name','Email','Phone Number','Image','Actions']
+  pageIndex = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,16 +29,24 @@ export class ListUserComponent {
   ) {}
   ngOnInit() {
     this.userInfo = this.route.snapshot.data;
+    this.numberOfDocs = this.userInfo.listUser.count;
+    if (this.numberOfDocs % 3 != 0) {
+      this.totalPages = Math.floor(this.numberOfDocs % 3) + 1;
+    }
+    else{
+      this.totalPages = this.numberOfDocs / 3;
+    }
+    this.tempArr = Array(this.totalPages -1 ).fill(0).map((x,i)=>i);
     this.allUserInfo = this.userInfo.listUser.data;
   }
 
   onSearch() {
     console.log(this.searchInput, 'heloooo');
     let input = this.searchInput;
-    this.userService.searchInput(input).subscribe((response:any)=>{
-      this.allUserInfo = response.data
-      console.log(this.allUserInfo,"inside searchInput");
-    });;
+    this.userService.searchInput(input).subscribe((response: any) => {
+      this.allUserInfo = response.data;
+      console.log(this.allUserInfo, 'inside searchInput');
+    });
   }
   prevBtn() {
     this.pageNumber = this.pageNumber - 1;
@@ -58,5 +71,9 @@ export class ListUserComponent {
       this.allUserInfo = response.data;
     });
   }
-  
+  updateBtn(id: any) {}
+
+  pageIndexInc(pageIndex:any){
+    this.pageIndex = this.pageIndex + 1;
+  }
 }

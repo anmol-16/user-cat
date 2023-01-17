@@ -1,6 +1,6 @@
 <div class="mb-3">
         <label for="formFile" class="form-label">Add A File</label>
-        <input class="form-control" type="file" id="formFile">
+        <input class="form-control" type="file" id="formFile" (change)="onChange($event)">
       </div>
-    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Add File</button>
+    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" (click)="onUpload()">Add File</button>
 </div>

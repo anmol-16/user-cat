@@ -1,105 +1,88 @@
 <div class="container">
   <div class="main-body">
     <div class="user-functionalities">
-        <input  [(ngModel)]="searchInput" class="form-control mr-sm-2 input-design search-style" type="search" placeholder="Instant search within in results" aria-label="Search">
-        <button type="button" class="btn search-btn " (click)="onSearch()">Search</button> 
-        <button type="button" class="btn add-new-btn">Add New User</button>
-        <button type="button" class="btn bulk-import-btn" routerLink="/bulk-import">Bulk Import</button>
+      <input
+        [(ngModel)]="searchInput"
+        class="form-control m-2 d-inline p-2 input-design search-style"
+        type="search"
+        placeholder="Instant search within in results"
+        aria-label="Search"
+      />
+      <button type="button" class="btn add-new-btn m-2" (click)="onSearch()">
+        Search
+      </button>
+      <button type="button" class="btn add-new-btn m-1">Add New User</button>
+      <button
+        type="button"
+        class="btn bulk-import-btn m-1"
+        routerLink="/bulk-import"
+      >
+        Bulk Import
+      </button>
     </div>
-
-    <!-- <table class="table table-dark">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">email</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Update Option</th>
-          <th scope="col">Delete Option</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let user of allUserInfo;index as ind">
-        <tr>
-          <th scope="row">{{(ind*pageNumber +1)}}</th>
-          <td>{{user.firstName}} {{user.lastName}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.phoneNumber}}</td>
-          <td><button class="btn btn-success profile-button btn-pos " type="button" routerLink="/user-detail" (click)="updateBtn(user._id)" >Update User</button></td>
-          <td><button class="btn btn-danger profile-button btn-pos " type="button">Delete User</button></td>
-        </tr>
-      </tbody>
-    </table> -->
-    <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
-      <div class="col mb-3 display-grid-user">
-        <div class="divTable">
-          <div class="headRow">
-            <div class="divCell">User Name</div>
-            <div class="divCell">User Phone</div>
-            <div class="divCell">User Email</div>
-            <div class="divCell">Update Option</div>
-            <div class="divCell">Delete Option</div>
-          </div>
-          <div class="divRow" *ngFor="let user of allUserInfo">
-            <div class="divCell">{{user.firstName}} {{user.lastName}}</div>
-            <div class="divCell">{{user.phoneNumber}}</div>
-            <div class="divCell">{{user.email}}</div>
-            <div class="divCell"><button class="btn btn-success profile-button btn-pos " type="button">Update User</button></div>
-            <div class="divCell"><button class="btn btn-danger profile-button btn-pos " type="button">Delete User</button></div>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 d-none d-lg-inline-block text-center" *ngFor="let heading of tableHeadingList">
+          <h4>{{heading}}</h4>
         </div>
       </div>
-    </div> -->
-    <div class="list-container list-stripped">
-      <div class="list-header d-none d-lg-block list-table">
-          <div class="row">
-              <div class="col-12 col-lg-2 d-lg-inline"*ngFor = "let heading of tableHeadingList; let i = index" >
-                      <p>{{heading}}</p>
-              </div>
-          </div>
+      <div class="row row-sty pt-3" *ngFor="let user of allUserInfo">
+        <div class="col-12 col-lg-2 ms-sm-2">
+          <p class="font-xs d-inline d-lg-none font-fam">First Name:</p>
+          <p class="detail ms-1 ms-lg-0  font-info d-lg-text-center">
+            {{ user.firstName }}
+          </p>
+        </div>
+        <div class="col-12 col-lg-2 ms-sm-2">
+          <p class="font-xs d-inline d-lg-none font-fam">Last Name:</p>
+          <p class="detail ms-lg-0 font-info d-lg-text-center">
+            {{ user.lastName }}
+          </p>
+        </div>
+        <div class="col-12 col-lg-2 ms-sm-2">
+          <p class="font-xs d-inline d-lg-none font-fam">Email:</p>
+          <p class="text-truncate detail ms-lg-0 font-info d-lg-text-center">
+            {{ user.email }}
+          </p>
+        </div>
+        <div class="col-12 col-lg-2 ms-sm-2">
+          <p class="font-xs d-inline d-lg-none font-fam">Phone Number:</p>
+          <p class="detail ms-lg-0 font-info d-lg-text-center">
+            {{ user.phoneNumber }}
+          </p>
+        </div>
+        <div class="col-12 col-lg-2 ms-sm-2">
+          <p class="font-xs d-inline d-lg-none font-fam">image:</p>
+          <p class="detail ms-lg-0 font-info text-lg-center">
+            {{ user.image }}
+          </p>
+        </div>
+        <div class="col-12 col-lg-1 d-lg-inline ms-sm-2 text-end me-3">
+          <button class="d-sm-block btn action-btn">Actions</button>
+        </div>
       </div>
-            <div class="row" *ngFor="let user of allUserInfo">
-                <div class="col-12 col-lg-2  ms-sm-2 ms-2 mb-3">
-                    <p class="font-xs d-inline d-lg-none font-fam" >First Name: </p>
-                    <p class="detail ms-2 ms-lg-0 d-lg-inline m-lg-3 font-info">{{user.firstName}} </p>
-                    <p class="font-xs d-inline d-lg-none  font-fam">Last Name: </p>
-                    <p class="detail ms-2 ms-lg-0 d-lg-inline m-lg-3 font-info">{{user.lastName}} </p>
-                    <p class="font-xs d-inline d-lg-none  font-fam">Email: </p>
-                    <p class="detail ms-2 ms-lg-0 d-lg-inline m-lg-3 font-info">{{user.email}} </p>
-                    <p class="font-xs d-inline d-lg-none font-fam">Phone Number: </p>
-                    <p class="detail ms-2 ms-lg-0 d-lg-inline m-lg-3 font-info">{{user.phoneNumber}} </p>
-                    <p class="font-xs d-inline d-lg-none font-fam" >image: </p>
-                    <p class="detail ms-2 ms-lg-0 d-lg-inline m-lg-3 font-info">{{user.image}} </p>
-                    <div class="dropdown d-lg-inline d-none">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Actions
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </div>
-                </div>
-            </div>
-      </div>
+    </div>
   </div>
-  </div>
-  <div class="mt-5 text-center">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <a class="page-link" tabindex="-1" (Click)="prevBtn()"> Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link">1</a></li>
-        <li class="page-item"><a class="page-link">2</a></li>
-        <li class="page-item"><a class="page-link">3</a></li>
-        <li class="page-item">
-          <a class="page-link" (click)="pageIndexInc(pageIndex)">Next</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
+</div>
+
+<div class="mt-5 text-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item " [ngClass]="pageIndex<=1?'disabled':'' ">
+        <a class="page-link"  (click)="prevBtn()"> Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="pageSearch(pageIndex)">{{pageIndex}}</a></li>
+      <li class="page-item"><a class="page-link" (click)="pageSearch(pageIndex+1)">{{pageIndex+1}}</a></li>
+      <li class="page-item"><a class="page-link" (click)="pageSearch(pageIndex+2)">{{pageIndex+2}}</a></li>
+      <li class="page-item"><a class="page-link" (click)="pageSearch(pageIndex+3)">{{pageIndex+3}}</a></li>
+      <li class="page-item"><a class="page-link" (click)="pageSearch(pageIndex+4)">{{pageIndex+4}}</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="nextBtn()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <!-- <div class="mt-5 text-center ">
   <button class="btn btn-primary profile-button btn-pos " type="button" (click)="prevBtn()" [disabled]="pageNumber<=1">Prev</button>
   <button class="btn-pos" (click)="nextBtn()" *ngFor="let i of tempArr;index as a" [disabled]="a==(pageNumber-1)">{{a+1}}</button>

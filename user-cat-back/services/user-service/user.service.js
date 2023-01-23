@@ -72,7 +72,7 @@ const fetchUsersInSA = async (req, res) => {
     try {
         const paramsId = req.params.id;
         const pageNumbers = req.query.pageNumbers;
-        let userRes = await UserSchema.find({adminId:paramsId}).skip(10*(pageNumbers-1)).sort({firstName:1}).limit(10);
+        let userRes = await UserSchema.find({adminId:paramsId}).skip(15*(pageNumbers-1)).sort({firstName:1}).limit(15);
         let count = await UserSchema.find({adminId:paramsId}).count();
         return res.json({
             status:true,

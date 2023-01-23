@@ -20,7 +20,7 @@ export class ListUserComponent {
   totalPages = 0;
   tempArr:any = []
   tableHeadingList:any=  ['First Name','Last Name','Email','Phone Number','Image','Actions']
-  pageIndex = 0;
+  pageIndex = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,9 +50,9 @@ export class ListUserComponent {
   }
   prevBtn() {
     this.pageNumber = this.pageNumber - 1;
+    this.pageIndex = this.pageIndex -1;
     let page = this.pageNumber;
     if (page <= 1) {
-      this.pageNumber = 0;
       this.ngOnInit();
       return;
     } else {
@@ -66,14 +66,21 @@ export class ListUserComponent {
   }
   nextBtn() {
     this.pageNumber = this.pageNumber + 1;
+    this.pageIndex = this.pageIndex +1;
     let page = this.pageNumber;
     this.userService.fetchUserInPagination(page).subscribe((response: any) => {
       this.allUserInfo = response.data;
     });
   }
-  updateBtn(id: any) {}
-
-  pageIndexInc(pageIndex:any){
-    this.pageIndex = this.pageIndex + 1;
+  pageSearch(particularPage:any){
+    this.pageNumber = particularPage;
+    let page = this.pageNumber;
+    this.userService.fetchUserInPagination(page).subscribe((response: any) => {
+      this.allUserInfo = response.data;
+    });
   }
+  updateBtn(id: any) {
+
+  }
+
 }

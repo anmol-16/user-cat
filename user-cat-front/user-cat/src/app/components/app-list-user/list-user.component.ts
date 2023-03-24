@@ -25,7 +25,7 @@ export class ListUserComponent {
     'Last Name',
     'Email',
     'Phone Number',
-    'Image',
+    'UserId',
     'Actions',
   ];
   pageIndex = 1;

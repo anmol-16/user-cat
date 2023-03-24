@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="main-body">
     <div class="user-functionalities">
@@ -21,49 +23,51 @@
       </button>
     </div>
     <div class="container">
-      <div class="row">
+      <div class="row pt-3">
         <div class="col-lg-2 d-none d-lg-inline-block text-center" *ngFor="let heading of tableHeadingList">
           <h4>{{heading}}</h4>
         </div>
       </div>
       <div class="row row-sty pt-3" *ngFor="let user of allUserInfo">
-        <div class="col-12 col-lg-2 ms-sm-2">
+        <div class="col-12 col-lg-2 d-lg-text-center">
           <p class="font-xs d-inline d-lg-none font-fam">First Name:</p>
-          <p class="detail ms-1 ms-lg-0  font-info d-lg-text-center">
+          <p class="detail font-info d-lg-text-center">
             {{ user.firstName }}
           </p>
         </div>
-        <div class="col-12 col-lg-2 ms-sm-2">
+        <div class="col-12 col-lg-2">
           <p class="font-xs d-inline d-lg-none font-fam">Last Name:</p>
-          <p class="detail ms-lg-0 font-info d-lg-text-center">
+          <p class="detail font-info d-lg-text-center">
             {{ user.lastName }}
           </p>
         </div>
-        <div class="col-12 col-lg-2 ms-sm-2">
+        <div class="col-12 col-lg-2">
           <p class="font-xs d-inline d-lg-none font-fam">Email:</p>
-          <p class="text-truncate detail ms-lg-0 font-info d-lg-text-center">
+          <p class="text-truncate detail font-info d-lg-text-center">
             {{ user.email }}
           </p>
         </div>
-        <div class="col-12 col-lg-2 ms-sm-2">
+        <div class="col-12 col-lg-2">
           <p class="font-xs d-inline d-lg-none font-fam">Phone Number:</p>
-          <p class="detail ms-lg-0 font-info d-lg-text-center">
+          <p class="detail font-info d-lg-text-center">
             {{ user.phoneNumber }}
           </p>
         </div>
-        <div class="col-12 col-lg-2 ms-sm-2">
+        <div class="col-12 col-lg-2">
           <p class="font-xs d-inline d-lg-none font-fam">image:</p>
-          <p class="detail ms-lg-0 font-info text-lg-center">
+          <p class="detail font-info text-lg-center">
             {{ user.image }}
           </p>
         </div>
-        <div class="col-12 col-lg-1 d-lg-inline ms-sm-2 text-end me-3">
-          <button class="d-sm-block btn action-btn">Actions</button>
+        <div class="col-12 col-lg-2 list-btn text-end mb-3" >
+          <button class="d-sm-block btn action-btn  text-lg-center">Actions</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<ngx-skeleton-loader *ngIf="contentLoaded" count="10" appearance="line" animation="pulse"></ngx-skeleton-loader>
 
 <div class="mt-5 text-center">
   <nav aria-label="Page navigation example">

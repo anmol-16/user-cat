@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/app-header/header.component';
 import {ListUserResolver} from './services/all-user-resolver.service'
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     NgxPaginationModule ,
-    FormsModule
+    FormsModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [ListUserResolver],
   bootstrap: [AppComponent]
